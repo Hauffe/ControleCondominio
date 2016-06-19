@@ -17,21 +17,34 @@ public class Condomino {
     private String nome;
     private Integer rg;
     private List<Residencia> residencias;
+    private List<Reuniao> reunioes;
 
     public Condomino(String nome, Integer rg, Residencia residencia) {
         this.nome = nome;
         this.rg = rg;
-        
+        this.reunioes = new ArrayList<>();
         this.residencias = new ArrayList<>();
         this.residencias.add(residencia);
     }
 
     public Condomino() {
     }
-    
+
     public void addResidencia(Residencia residencia){
         this.residencias.add(residencia);
     }
+    public void addReuniao(Reuniao reuniao){
+        this.reunioes.add(reuniao);
+    }
+    
+    public List<Reuniao> getReunioes() {
+        return reunioes;
+    }
+
+    public void setReunioes(List<Reuniao> reunioes) {
+        this.reunioes = reunioes;
+    }
+    
 
     public String getNome() {
         return nome;
