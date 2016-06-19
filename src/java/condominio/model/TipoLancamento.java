@@ -13,13 +13,10 @@ public class TipoLancamento {
     
     private List<Lancamento> lancamentos;
 
-    public TipoLancamento(String nome, String descricao, List<Lancamento> lancamentos) {
+    public TipoLancamento(String nome, String descricao) {
+        lancamentos = new ArrayList<Lancamento>();
         this.nome = nome;
         this.descricao = descricao;
-        this.lancamentos = lancamentos;
-    }
-    public TipoLancamento() {
-        lancamentos = new ArrayList<Lancamento>();
     }
 
     public String getNome() {
@@ -40,6 +37,10 @@ public class TipoLancamento {
 
     public List<Lancamento> getLancamentos() {
         return lancamentos;
+    }
+    
+    public void addLancamento(Lancamento lancamento){
+        this.lancamentos.add(lancamento);
     }
 
     public void setLancamentos(List<Lancamento> lancamentos) {

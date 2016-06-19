@@ -15,16 +15,21 @@ public class Orcamento {
     private List<Lancamento> lancamentos;
     private Condominio condominio;
 
-    public Orcamento(Date data, List<Boleto> boletos, List<Lancamento> lancamentos, Condominio condominio) {
+    public Orcamento(Date data, Condominio condominio) {
         this.data = data;
-        this.boletos = boletos;
-        this.lancamentos = lancamentos;
+        
         this.condominio = condominio;
+        this.condominio.addOrcamento(this);
+        
+        this.boletos = new ArrayList<>();
+        this.lancamentos = new ArrayList<>();
     }
 
-    public Orcamento() {
-        boletos = new ArrayList<Boleto>();
-        lancamentos = new ArrayList<Lancamento>();
+    public void addLancamento(Lancamento lancamento){
+        this.lancamentos.add(lancamento);
+    }
+    public void addBoleto(Boleto boleto){
+        this.boletos.add(boleto);
     }
 
     public Date getData() {
@@ -58,6 +63,7 @@ public class Orcamento {
     public void setCondominio(Condominio condominio) {
         this.condominio = condominio;
     }
+    
 
     @Override
     public String toString() {

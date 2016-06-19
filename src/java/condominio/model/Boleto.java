@@ -20,10 +20,9 @@ public class Boleto {
         this.status = status;
         this.dataLancamento = dataLancamento;
         this.dataVencimento = dataVencimento;
+        
         this.orcamento = orcamento;
-    }
-
-    public Boleto() {
+        this.orcamento.getBoletos().add(this);
     }
 
     public Double getValor() {

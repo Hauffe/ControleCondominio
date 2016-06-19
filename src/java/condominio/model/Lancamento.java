@@ -13,14 +13,17 @@ public class Lancamento {
     private Date data;
     
     private TipoLancamento tipoLancamento;
+    private Orcamento orcamento;
 
-    public Lancamento(String descricao, Double valor, Date data, TipoLancamento tipoLancamento) {
+    public Lancamento(String descricao, Double valor, Date data, TipoLancamento tipoLancamento, Orcamento orcamento) {
         this.descricao = descricao;
         this.valor = valor;
         this.data = data;
         this.tipoLancamento = tipoLancamento;
-    }
-    public Lancamento() {
+        this.orcamento = orcamento;
+ 
+        this.tipoLancamento.getLancamentos().add(this);
+        this.orcamento.getLancamentos().add(this);
     }
     
     public String getDescricao() {
@@ -47,8 +50,17 @@ public class Lancamento {
     public void setTipoLancamento(TipoLancamento tipoLancamento) {
         this.tipoLancamento = tipoLancamento;
     }
+
+    public Orcamento getOrcamento() {
+        return orcamento;
+    }
+
+    public void setOrcamento(Orcamento orcamento) {
+        this.orcamento = orcamento;
+    }
     @Override
     public String toString() {
-        return "Lancamento{" + "descricao=" + descricao + ", valor=" + valor + ", data=" + data + ", tipoLancamento=" + tipoLancamento + '}';
+        return "Lancamento{" + "descricao=" + descricao + ", valor=" + valor + ", data=" + data + ", tipoLancamento=" + tipoLancamento + ", orcamento=" + orcamento + '}';
     }
+    
 }

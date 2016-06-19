@@ -17,7 +17,9 @@ public class Regimento {
         this.numero = numero;
         this.dataCriacao = dataCriacao;
         this.descricao = descricao;
+        
         this.condominio = condominio;
+        this.condominio.addRegimento(this);
     }
 
     public Regimento() {
